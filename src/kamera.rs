@@ -1,13 +1,12 @@
 use bevy::prelude::*;
-use crate::gyte_romskip;
 
 const KAMERA_DISTANSE: f32 = 80.0;
 
 pub struct KameraPlugin;
 
 impl Plugin for KameraPlugin {
-    fn bygg(&self, app: App) {
-        app.add_systems(Startup, spawn_romskip);
+    fn build(&self, app: &mut App) {
+        app.add_systems(Startup, spawn_kamera);
     }
 }
 

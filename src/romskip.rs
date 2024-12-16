@@ -14,7 +14,7 @@ struct RomskipBundle {
 pub struct RomskipPlugin;
 
 impl Plugin for RomskipPlugin {
-    fn bygg(&self, app: &mut App) {
+    fn build(&self, app: &mut App) {
         app.add_systems(Startup, spawn_romskip);
     }
 }
@@ -25,7 +25,7 @@ fn spawn_romskip(mut commands: Commands, asset_server: Res<AssetServer>) {
             value: STARTER_HASTIGHET
         },
         modell: SceneBundle {
-            scene: asset_server.load("Spaceship.glb#Scene0"),
+            scene: bevy::prelude::SceneRoot(asset_server.load("Spaceship.glb#Scene0")),
             transform: Transform::from_translation(STRARTER_OVERSETTELSE),
             ..default()
         },
