@@ -2,6 +2,7 @@ mod bevegelse;
 mod debug;
 mod kamera;
 mod romskip;
+mod asset_loader;
 
 use bevy::prelude::*;
 
@@ -9,6 +10,7 @@ use bevegelse::BevegelsePlugin;
 use debug::DebugPlugin;
 use kamera::KameraPlugin;
 use romskip::RomskipPlugin;
+use asset_loader::AssetLoaderPlugin;
 
 fn main() {
     App::new()
@@ -22,5 +24,6 @@ fn main() {
         .add_plugins(DebugPlugin)
         .add_plugins(RomskipPlugin)
         .add_plugins(KameraPlugin)
+        .add_plugins(AssetLoaderPlugin)
         .run();
 }
