@@ -27,3 +27,14 @@ pub struct SpawnTime {
 
 pub struct AsteroidPlugin;
 
+impl Plugin for AsteroidPlugin {
+    fn build(&self, app: &mut App) {
+        app.insert_resource(SpawnTimer {
+            timer: Timer::from_seconds(SPAWN_TIME_SECS, TimerMode::Repeating),
+        })
+        .add_systems(
+            Update,
+            (spawn_asteroid, rotate_asteroids, handle_asteroid_kollisjon),
+        )
+    }
+}
